@@ -3,6 +3,14 @@ const app = express()
 const fetch = require('node-fetch')
 const xlsxtojson = require("xlsx-to-json");
 const xlstojson = require("xls-to-json");
+const faker = require('faker')
+const bodyParser = require('body-parser')
+const expressLayouts = require('express-ejs-layouts')
+
+
+app.set('view engine', 'ejs')    // Setamos que nossa engine será o ejs
+app.use(expressLayouts)          // Definimos que vamos utilizar o express-ejs-layouts na nossa aplicação
+app.use(bodyParser.urlencoded()) // Com essa configuração, vamos conseguir parsear o corpo das requisições
 app.use(function(req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
@@ -55,9 +63,7 @@ let apiUrl = 'http://localhost:3000/api/xlstojson'
 
   fetch(apiUrl)
   .then(res => res.json())
-  .then(data => data.forEach(item =>{
-    console.log(`Client Name: ${item.CLIENT}`)
-  }))
+  .then(data => res.render('pages/home.ejs',{data : data}))
   .catch(err => {
     console.log(err);
     res.sendStatus(500); // Make sure you close the connection on an error!

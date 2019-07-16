@@ -9,8 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "faker": "^4.1.0",
+    "install": "^0.13.0",
     "node-fetch": "^2.6.0",
+    "ou": "0.0.2",
     "xls-to-json": "^0.5.2",
     "xlsx-to-json": "^0.3.0"
   }
