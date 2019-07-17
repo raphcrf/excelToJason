@@ -10,9 +10,13 @@
 
     <% data.forEach(item =>{%>
         <h5>Client: <%=item.CLIENT%></h5> 
-        <h5>Status: <%=item.STATUS%></h5>
 
-
+        <% if(item.CLIENT === 'Not Started'){%>
+        <h5 class="notstarted">Status: <%=item.STATUS%></h5>
+        
+        <%} else{%>
+            <h5 class="inprogress">Status: <%=item.STATUS%></h5>   
+            <%}%>
     <%}) %>
 
 

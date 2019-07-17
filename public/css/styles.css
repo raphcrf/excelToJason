@@ -1,0 +1,7 @@
+.inProgress {
+    color:green;
+}
+.notStarted {
+    color:red;
+    font-size: 100px;
+}
